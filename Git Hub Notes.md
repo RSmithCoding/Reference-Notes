@@ -10,6 +10,3 @@ git push origin main
 cd - change directory <br />
 ls - list directory <br/>
 clear - clears the screen <br />
-
-
-
