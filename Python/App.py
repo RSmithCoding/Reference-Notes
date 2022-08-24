@@ -1,5 +1,6 @@
 # Printing messages
 
+import math
 print("This is a message to the screen")
 
 print("=" * 10)
@@ -51,3 +52,26 @@ print(string.find("s"))  # Finds charater in string and returns int index
 print(string.replace("s", "!"))  # Replaces one character with another
 # Checks to see is character or string is in the string and retruns True / False
 print("T" in string)
+
+# Working with numbers using build in functions and math module
+
+print(round(3.265))
+
+
+print(math.ceil(3.256))
+print(math.floor(3.265))
+
+# Getting input from user
+
+answer = input("Please Enter a number to be doubled >...")  # Returns a string
+
+# Converting values to different type - if working with numbers from input will need to convert value from type string
+
+# int(answer)
+# float(answer)
+# bool(answer)
+# str(answer)  # For converting to a string
+
+x = int(answer) * 2
+
+print(f"Here is you answer doubled..{x}")
