@@ -1,0 +1,20 @@
+General Notes on HTTP
+
+index.html should contain doc type <!DOCTYPE html>
+
+following that should be the <html> </html>
+
+then within the abouve you can have the following
+
+<head>
+<title> Any text </title>
+</head>
+
+<body>
+
+<p> This is for paragraphs of text </p>
+
+<img src"" alt"" /> (src path in quotes to image file from directory of .html file)
+
+</body>
+
