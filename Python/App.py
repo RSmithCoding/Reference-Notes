@@ -75,3 +75,22 @@ answer = input("Please Enter a number to be doubled >...")  # Returns a string
 x = int(answer) * 2
 
 print(f"Here is you answer doubled..{x}")
+
+# if Statements
+
+number_of_drivers = 10
+number_vehicles = 8
+
+if number_of_drivers > number_vehicles:  # Needs to end with a colon
+    print("You have spare drivers!")
+print("This will be printed regardless as it is outside the if statement")
+
+# elif can be used to add multiple conditions to a if statement
+
+age = 35
+height = 6
+
+if age > 18:
+    print("You are old enough to enter")
+elif height < 5:
+    print("You are too small")
