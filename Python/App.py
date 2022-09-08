@@ -87,10 +87,47 @@ print("This will be printed regardless as it is outside the if statement")
 
 # elif can be used to add multiple conditions to a if statement
 
-age = 35
+age = 16
 height = 6
 
 if age > 18:
     print("You are old enough to enter")
 elif height < 5:
     print("You are too small")
+else:
+    print("This will be done if all conditions arnt met")
+
+# if statements using ternery operator for cleaner code
+
+cost = 100
+
+message = "This is expensive" if cost >= 100 else "This is affordable"
+print(message)
+
+# Logical Opertators and / or / not
+
+check_1 = True
+check_2 = True
+test_1 = False
+if check_1 and check_2:
+    print("Do something")
+else:
+    print("Dont do anything")
+
+# with 'and' operator both conditions must be true with 'or' only one condition needs to be true
+
+# not operator reverses the value of the boolean
+
+if (check_1 or check_2) and not test_1:
+    print("This works")
+
+# for loops for repeating tasks
+
+for x in range(5):
+    print("Result!")
+
+# This loop will run from 1 - 10 times in steps of 2. It also prints the loop number each time to the screen
+
+for x in range(1, 10, 2):
+
+    print("New result!", x)
