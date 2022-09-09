@@ -131,3 +131,30 @@ for x in range(5):
 for x in range(1, 10, 2):
 
     print("New result!", x)
+
+# for else loops - this for loop contains a if statement so will run through the loop 3 times unless condition is mend in which case it breaks out
+
+valid = True
+
+for x in range(3):
+    print("Attempt")
+    if valid:
+        print("Test is Valid")
+        break
+else:                               # adding the else allows instructions for the case of the for loop running 3 times and the condition not being met
+    print("Unsucessful")
+
+# nested loops
+
+for x in range(10):                # in this nested loop z will run 3 times for every time x is ran
+    for z in range(3):
+        print(f"{x},{z}")
+
+# while loops are used to repeat something while a condition is true
+
+number = 2
+
+while number > 100:
+    print(number)
+    number = number * 2
+    number *= 2             # this is a shorter way of writing the above line
