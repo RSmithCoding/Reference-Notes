@@ -158,3 +158,35 @@ while number > 100:
     print(number)
     number = number * 2
     number *= 2             # this is a shorter way of writing the above line
+
+# functions
+
+# defining and calling a function
+
+
+def welcome():                      # function is defined
+    print("Welcome!")
+
+
+welcome()                           # function is called
+
+# setting parameters and passing arguments to a function
+
+
+def user_login(first_name, last_name):
+    print(f"Welcome; {first_name} {last_name} you are logged in")
+
+
+user_login("Russell", "Smith")
+
+# writing a function to return a value
+
+
+def answer(number_1, number_2):
+    sum = number_1 + number_2
+    return f"Your answer is: {sum}"
+
+
+new_number = answer(2, 2)
+
+print(new_number)
