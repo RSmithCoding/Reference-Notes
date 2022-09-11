@@ -190,3 +190,17 @@ def answer(number_1, number_2):
 new_number = answer(2, 2)
 
 print(new_number)
+
+# passing multiple values into a function which python saves as a dictionary
+
+
+def character_stats(**stats):
+    # This will just out put the strengh value but print(stats) would output the whole dictionary
+    print(stats["strength"])
+
+
+character_stats(name="Russell", strength=58, luck=68)
+
+#   functions have local varibles that cant be called from outside of the function. So functions can share the same varible names
+
+#   lists
