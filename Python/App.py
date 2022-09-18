@@ -1,6 +1,11 @@
+from collections import deque
+import math
+from os import system
+
+system('cls')
+
 # Printing messages
 
-import math
 print("This is a message to the screen")
 
 print("=" * 10)
@@ -195,7 +200,7 @@ print(new_number)
 
 
 def character_stats(**stats):
-    # This will just out put the strengh value but print(stats) would output the whole dictionary
+    # this will just out put the strengh value but print(stats) would output the whole dictionary
     print(stats["strength"])
 
 
@@ -204,3 +209,157 @@ character_stats(name="Russell", strength=58, luck=68)
 #   functions have local varibles that cant be called from outside of the function. So functions can share the same varible names
 
 #   lists
+
+#   lists can contain difference object types and can be combined
+
+car_makes = ["Bmw", "Audi", "VW"]
+stats = [12, 22, 54, 6]
+
+combined_example = car_makes + stats
+
+two_dimensional_list = [[0, 2], [4, 2]]   # A list of lists
+
+twenty_numbers = list(range(20))    # creates a list of 20 numbers 0-19
+
+# creates a list of the characters in quotes#
+characters = list("List of letters")
+
+# length function displays the number of items in the list
+print(len(twenty_numbers))
+
+car_makes[2] = "AUDI"   # changes an item in a list
+
+# selects the first item in the list and prints it to the screen
+print(stats[0])
+
+print(stats[0:2])
+
+new_stats = stats[0:1]
+
+scores = [2, 56, 78, 4, 6, 8, 23, 46, 73]
+
+for i in scores:        # for loops can be used to go through lists
+    print(i)
+
+#   adding and removing from lists
+
+numbers = [34, 56, 23, 56, 756, 32, 5, 1, 7]
+
+numbers.append(46)          # adds something to end of the list
+numbers.insert(0, 23)       # adds something to a certain position
+numbers.pop(4)              # removes from list based on position
+numbers.pop()               # removes from end of list
+numbers.remove(23)          # removes first occurance of requested from list
+
+del numbers[0:5]            # removes positions 0-5 from the list
+
+#   finding index of specific item in list
+
+numbers.index(5)
+
+#   checking list for specific item then returning the index
+
+numbers_2 = [1, 4, 6, 3, 76]
+
+if 1 in numbers_2:
+    print(numbers_2.index(1))
+
+#   counting how many times something occurs in a list
+
+costs = [2.00, 1.99, 4.50, 4.50, 6.99, 6.50, 4.50]
+
+print(costs.count(4.50))
+
+costs.sort()    # sorts values in asending order, use keyword argument reverse=true to decend list
+
+print(costs)
+
+# sorts in the same way but returns a new list instead of modifying exisitng list
+sorted(costs)
+
+direct_debits = [
+
+    ("BT", 4, 21),
+    ("PHONE", 3, 1),
+    ("RENT", 4, 15)
+]
+
+
+# sorting using lambda when sorting tuples
+direct_debits.sort(key=lambda item: item[1])
+
+print(direct_debits)
+
+#   create a new list sorted from the old list only containing the name using the map function
+
+debt_names = list(map(lambda item: item[0], direct_debits))
+# cleaner way of writing same as previous line
+debt_names_2 = [item[0] for item in direct_debits]
+print(debt_names)
+print(debt_names_2)
+
+# filtered items into a new list based on a condition
+april_debts = list(filter(lambda item: item[1] == 4, direct_debits))
+# cleaner way of writing same as previous line
+april_debts_2 = [item for item in direct_debits if item[1] == 4]
+print(april_debts)
+print(april_debts_2)
+
+# used a for loop and formatted string to display list in specific order
+for i in direct_debits:
+    direct_debits.sort(key=lambda item: (item[1], item[2]))
+    print(f"Debit {i[0]} Month {i[1]} Day {i[2]}")
+
+# combining 2 list using zip function
+
+team1_scores = [3, 5, 2, 1]
+
+team2_scores = [2, 3, 3, 5]
+
+print(list(zip("123", team1_scores, team2_scores)))
+
+# stacks (last in first out)
+
+my_score_cards = []             # creates empty list (stack)
+print(my_score_cards)
+my_score_cards.append(3)        # adds entrys
+my_score_cards.append(5)
+my_score_cards.append(6)
+my_score_cards.append(5)
+print(my_score_cards)
+my_score_cards.pop()            # deletes the entry at the end of the list
+print(my_score_cards)
+my_score_cards.pop()
+my_score_cards.pop()
+my_score_cards.pop()
+
+
+if not my_score_cards:          # checks to see is stack is empty if false displays last item
+    print("Stack empty")
+else:
+    print(my_score_cards[-1])
+
+#   queues (first in first out)
+queue_positiions = deque([])    # creates empty list
+queue_positiions.append(3)      # adding items to list
+queue_positiions.append(5)
+queue_positiions.append(67)
+queue_positiions.append(75)
+queue_positiions.popleft()      # removes first item
+print(queue_positiions)
+
+#   a set is a list of items with no duplicates
+
+#   you can get rid of duplicates from a list by converting to a set
+
+collection = [2, 2, 4, 5, 3, 4, 4, 5, 6, 4, 5, 6, ]
+
+new_collection = set(collection)
+
+print(new_collection)
+
+other_collection = [3, 5, 7, 6, 7, 8, 9, 9, 9, ]
+
+print(new_collection | other_collection)
+print(new_collection & other_collection)
+print(new_collection - other_collection)
