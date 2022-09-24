@@ -354,12 +354,17 @@ print(queue_positiions)
 
 collection = [2, 2, 4, 5, 3, 4, 4, 5, 6, 4, 5, 6, ]
 
-new_collection = set(collection)
+new_collection = set(collection)        # all duplicates are removed
 
 print(new_collection)
 
-other_collection = [3, 5, 7, 6, 7, 8, 9, 9, 9, ]
+other_collection = set([3, 5, 7, 6, 7, 8, 9, 9, 9, ])
 
+# creates a new set with all the items that are in either the first or the second set
 print(new_collection | other_collection)
+# creates a new set with all the items that are both in the first and the second set
 print(new_collection & other_collection)
+# creates a new set with all items that are in the first set but not in the second set
 print(new_collection - other_collection)
+# creates a new set with all items that are in first set and second but not in both
+print(new_collection ^ other_collection)
