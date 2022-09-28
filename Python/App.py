@@ -1,6 +1,8 @@
+from pprint import pprint
 from collections import deque
 import math
 from os import system
+from turtle import color
 
 system('cls')
 
@@ -368,3 +370,77 @@ print(new_collection & other_collection)
 print(new_collection - other_collection)
 # creates a new set with all items that are in first set and second but not in both
 print(new_collection ^ other_collection)
+
+
+# Dictionaries allows you store values with a key
+
+account_details = {"Name": "Russell", "Balance": 0}
+
+# Can also creat a list using the built in function
+
+account_details2 = dict(Name="Name", Balance=0)
+
+# prints the value associated with the key value "Name"
+print(account_details["Name"])
+
+account_details["Name"] = "Russell Smith"  # Changes the value of "Name"
+
+print(account_details)     # Prints the whole dictionary
+
+account_details["Ref"] = 384673     # Creates a new key and assigns a value
+
+if "Interest" in account_details:
+    # Checking dictionary for a key value before doing something
+    print(account_details[Interest])
+else:
+    print("Key does not exist")
+
+# Using get method to check for key if not found return 0
+print(account_details.get("Interest", 0))
+
+# Deleting an item from dictionary
+
+del account_details["Ref"]
+
+# Looping through dictionary to print to screen for example
+
+for key in account_details:
+    # Added sep tab spacing to make more presentable on screen
+    print(key, account_details[key], sep='\t\t')
+
+# Using dictionary comprehension for cleaners code
+
+code = {}
+for x in range(5):
+    code[x] = x * 2
+
+# expression for item in items
+
+code = {x: x * 2 for x in range(5)}
+
+# Generator objects are used for large data sets to save on memory when using comprehension expression
+
+# if this was a large list it would only take up 120 bytes
+code = (x * 2 for x in range(5))
+
+# The unpacking operator '*' can be used on any iterable except on dictionaries where its '**'
+
+price_codes = [34224, 234556, 343564, 342345, 44644, 545643]
+print(price_codes)
+print("")
+print(*price_codes)
+
+print(*"THIS IS UNPACKED")
+
+Personal = {"Name": "Bob", "Age": 40}
+
+Casual = {"Colour": "Red"}
+
+combined = {**Personal, **Casual}
+
+print(combined)
+
+# Using Pretty Print module to make things more readable on the screen
+
+
+pprint(combined, width=1)
