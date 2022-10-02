@@ -1,3 +1,4 @@
+from decimal import DivisionByZero
 from pprint import pprint
 from collections import deque
 import math
@@ -444,3 +445,32 @@ print(combined)
 
 
 pprint(combined, width=1)
+
+# Handing Exceptions
+
+try:
+    file = open("app.py")
+    ordernumber = int(input("Order Number: "))
+
+# Multiple exceptions can be used like so:
+# except ValueError:
+
+except (ValueError, DivisionByZero):
+    print("Sorry that's not a valid Order Number")
+else:
+    print("No Exceptions Thrown")
+
+# This finally clause will always been executed regardless if there is an exception or not
+# Which is useful if a file needs to be closed and there has been an exception you still
+# need the file to be closed
+
+finally:
+    file.close()    # This is where network / database connections would be closed
+
+# If a file or external resourse is opened with the 'with' command python will automatically close it:
+
+try:
+    with open("Example.py") as file2:  # Multiple files could be opened here with a ','
+        print("File opened")
+except:
+    print("error message")
