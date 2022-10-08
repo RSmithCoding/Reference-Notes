@@ -1,4 +1,5 @@
 from decimal import DivisionByZero
+#from msilib.schema import Class
 from pprint import pprint
 from collections import deque
 import math
@@ -474,3 +475,62 @@ try:
         print("File opened")
 except:
     print("error message")
+
+# Classes - a class is blue print for it objects, the objects are instances of the class. Methods can then be called on objects
+# the class.
+
+# Example, a class is created with a function defined for adding a customer. Class names need to have a capital for each word
+# each function needs have atleast one parameter so self is used.
+
+class Customer:
+
+# Class attributes are created at class level and instance attributes are defined when object of class is created
+
+    default_level = "USER"
+
+# A Magic method __init__ is used to create a constructor using self to name varibles
+    
+    def __init__(self, name, number):
+        self.name = name
+        self.number = number
+        
+# A Function in the customer class is created to 'add a customer'
+    def add_customer(self):
+        print(f"Customer {self.name} added as {self.number} with level {self.default_level}")
+
+# An instance of the customer class is created and named and relevent arguments passed
+
+customer1 = Customer("Russell",56473)
+# Here only this customers default_level has been changed
+customer1.default_level = "ADMIN"
+# This 'customer' is then added using the add customer method
+
+customer1.add_customer()
+
+customer2 = Customer("Joanne",56476)
+
+customer2.add_customer()
+
+
+# Using a class method to set initial values for creating an instance of a object with out defining attributes
+
+class Vehicle:
+
+    def __init__(self,v_make,v_model,type):
+        self.v_make = v_make
+        self.v_model = v_model
+        self.type = type
+
+    def create_vehicle(self):
+        print(f"{self.v_make} {self.v_model} of type: {self.type} has been added!")
+
+    @classmethod
+    def blank(cls):
+        return cls("none","none","-")
+
+vec1 = Vehicle("BMW", "M3", "PERFORMANCE")
+vec1.create_vehicle()
+
+vec2 = Vehicle.blank()
+vec2.create_vehicle()
+
