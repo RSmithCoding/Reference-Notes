@@ -394,7 +394,7 @@ account_details["Ref"] = 384673     # Creates a new key and assigns a value
 
 if "Interest" in account_details:
     # Checking dictionary for a key value before doing something
-    print(account_details[Interest])
+    print(account_details["Interest"])
 else:
     print("Key does not exist")
 
@@ -563,5 +563,12 @@ product.price()             # This function can also be called as it is in the p
 
 print(product.unique)
 
+# dir method used on a object returns all the attributes and functions related to that object
+# You can use methods from other py files by using import. If they are in another directory then place a __init__.py
+# file in that directory and python will see it as a package that you can then import something.something instead
 
+# Using if __name__ == __main__ in main file will run that code but if that file is imported to another python file 
+# it will miss it out
+
+# python standard libary - files
 
