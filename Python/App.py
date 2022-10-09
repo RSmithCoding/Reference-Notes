@@ -518,7 +518,6 @@ class Vehicle:
         self.v_make = v_make
         self.v_model = v_model
         self.type = type
-
 # Using a magic method to compare two objects of the same class
 
     def __eq__(self, other):
@@ -527,7 +526,7 @@ class Vehicle:
     def create_vehicle(self):
         print(f"{self.v_make} {self.v_model} of type: {self.type} has been added!")
 
-# Using a class method to set initial values for creating an instance of a object with out defining attributes
+ #Using a class method to set initial values for creating an instance of a object with out defining attributes
 
     @classmethod
     def blank(cls):
@@ -545,9 +544,10 @@ print(vec1 == vec2)
 
 class Stock:
 
-    def __iniit__(self,unique):
-        self.unique = unique
-        unique = 50
+    def __init__(self):
+        self.unique = 50    # As this class is the parent class this can still be called through an instance
+                            # of the item class
+
     def price(self):
         print(9.99)
 
@@ -559,6 +559,9 @@ class Item(Stock):
 product = Item()
 
 product.quant()
-product.price()
-#print(product.unique)
+product.price()             # This function can also be called as it is in the parent class of initialised object
+
+print(product.unique)
+
+
 
