@@ -1,4 +1,5 @@
 from decimal import DivisionByZero
+from enum import unique
 #from msilib.schema import Class
 from pprint import pprint
 from collections import deque
@@ -511,9 +512,6 @@ customer2 = Customer("Joanne",56476)
 
 customer2.add_customer()
 
-
-# Using a class method to set initial values for creating an instance of a object with out defining attributes
-
 class Vehicle:
 
     def __init__(self,v_make,v_model,type):
@@ -521,8 +519,15 @@ class Vehicle:
         self.v_model = v_model
         self.type = type
 
+# Using a magic method to compare two objects of the same class
+
+    def __eq__(self, other):
+        return self.v_make == other.v_make and self.v_model == other.v_model and self.type == other.type
+
     def create_vehicle(self):
         print(f"{self.v_make} {self.v_model} of type: {self.type} has been added!")
+
+# Using a class method to set initial values for creating an instance of a object with out defining attributes
 
     @classmethod
     def blank(cls):
@@ -533,4 +538,27 @@ vec1.create_vehicle()
 
 vec2 = Vehicle.blank()
 vec2.create_vehicle()
+
+print(vec1 == vec2)
+
+# Parent / Child classes and inheritance
+
+class Stock:
+
+    def __iniit__(self,unique):
+        self.unique = unique
+        unique = 50
+    def price(self):
+        print(9.99)
+
+class Item(Stock):
+
+    def quant(self):
+        print(500)
+
+product = Item()
+
+product.quant()
+product.price()
+#print(product.unique)
 
