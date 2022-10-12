@@ -572,3 +572,38 @@ print(product.unique)
 
 # python standard libary - files
 
+# Working with Paths - examples
+
+from pathlib import Path
+
+Path(r"C:\Program Files\Windows")       # Absolute windows path
+Path("user/local/bin")                  # Absolute mac path
+Path()                                  # Current Directory
+Path("files/something.py")              # Path from current directory
+Path() / "files" / "something.py"       # Path with joined strings 
+Path.home()                             # Users home directory
+
+path = Path("files/something.py")
+
+path.exists()               # Check for file or directory exists
+path.is_file()              # Check path represents the file
+path.is_dir()               # Check if path represents the directory
+print(path.name)            # Returns file name
+print(path.stem)            # Returns file name no ext
+print(path.suffix)          # Returns only file ext
+print(path.parent)          # Returns parent directory
+path2 = path.with_name("file.txt")  # Return path with given file
+print(path.absolute())              # Absolute value of this file
+path3 = path.with_suffix(".txt")    # Path to change extention of file
+
+# Working with directorys
+
+path = Path("foldername")
+path.exists()      
+path.mkdir()    #   Creates a directory
+path.rmdir()    #   Removes a directory
+path.rename("newfoldername")
+
+for p in path.iterdir():    # Lists files and directorys as a generator object and itterates over them
+    print(p)
+
