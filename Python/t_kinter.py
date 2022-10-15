@@ -27,7 +27,7 @@ root.columnconfigure(0,weight=1)
 root.rowconfigure(0,weight=1)
 
 Grid.rowconfigure(frame, 2, weight=1)
-
+Grid.columnconfigure(frame, 2, weight=1)
 
 
 ttk.Button(frame,text="Press Me!").grid(column=2,row=2)
