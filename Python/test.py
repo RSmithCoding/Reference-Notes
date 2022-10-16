@@ -11,6 +11,7 @@ app = customtkinter.CTk()  # create CTk window like you do with the Tk window
 app.geometry("1920x1080")
 
 menu = ttk.Frame(app)
+menu.grid(column=0, row=0)
 
 
 
