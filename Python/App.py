@@ -602,8 +602,56 @@ path = Path("foldername")
 path.exists()      
 path.mkdir()    #   Creates a directory
 path.rmdir()    #   Removes a directory
-path.rename("newfoldername")
+#path.rename("newfoldername")
 
-for p in path.iterdir():    # Lists files and directorys as a generator object and itterates over them
-    print(p)
+#for p in path.iterdir():    # Lists files and directorys as a generator object and itterates over them
+#    print(p)
 
+# Working with time module
+
+import time
+
+time.time() # Returns number of seconds from start of computers time
+
+# Working with date time objects
+
+from datetime import datetime, timedelta
+
+my_dob = datetime(1981,12,13) + timedelta(days=30)
+
+print(my_dob)
+
+current_datetime = datetime.now()
+
+datetime.strptime("1981/12/13","%Y/%m/%d") # Used for converting strings to datetime
+
+current_timestamp = datetime.fromtimestamp(time.time()) # Converts a time stamp to a date time object
+
+print(f"{current_timestamp.year},{current_timestamp.month}") # Formatted strting using datetime object
+
+print(current_datetime.strftime("%Y/%m/%d")) # Converts datetime object to a string
+
+time_passed = current_datetime - my_dob
+
+print(time_passed)
+
+print("days", time_passed.days)
+print("seconds", time_passed.seconds)
+
+# Random Numbers
+
+import random
+
+print(random.random()) # Generates a random number between 0 - 1 
+
+print(random.randint(0,49)) # Generates a random number between two numbers
+
+print(random.choice(["CIRCLE","SQUARE","TRIANGE"])) # Randomly generate item listed
+
+print(random.choices(["X","O","*","£","@"], k=3)) # Randomly generates number items listed based on k= as number of items
+
+# Opening a web browser
+
+import webbrowser
+
+webbrowser.open("http:www.google.co.uk")
