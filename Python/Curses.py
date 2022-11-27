@@ -27,6 +27,7 @@ def main(stdscr):       # curses runs a screen over the top of the terminal and 
                   curses.color_pair(1))
     stdscr.addstr(20, 15, "THIS IS ANOTHER COLOURED TEXT EXAMPLE",
                   curses.color_pair(2))
+    
     rows1, cols2 = stdscr.getmaxyx()
     stdscr.addstr(1, 0, " " * cols2, curses.color_pair(1))
 

@@ -33,6 +33,11 @@ else:
 
 #print("Data Added to Database")
 
+
+
+
+
+
 con.commit()    # Commits the changes to the database
 
 # Close the database connection
