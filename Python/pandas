@@ -1,0 +1,169 @@
+Pandas -
+
+Import pandas as pd
+
+print(pd.__version__) - to check version
+
+#SERIES 
+
+#Single column 1 dimension array
+
+Data = [100, 200, 300] 
+
+Series = pd.Series(data) to convert to a pandas series
+
+To change index: Series = pd.Series(data, index=[“a”, “b”, “c”]) - for example
+
+print(series.loc[“10”]) loc is for location and will return the value to label “10”
+
+ To change value: series.loc[“c”] = 200 changes value for label c to 200
+
+ #FILTER BY VAULES
+
+print(series[series >= 200])
+
+#Prints to screen any values of 200 or more
+
+#DICTIONARY
+
+Calories = {“Day 1”: 1750, “Day 2”: 2100, “Day 3”: 1700}
+
+Series = pd.Series(calories)
+
+print(series.loc[“Day 3”]) to show the value for day 3
+
+#DATAFRAMES
+
+#Tabular data structure 2 dimensional array
+
+Data = {“Name”: [“Dave”, “Russell”, “John”],
+		“Age”: [30, 45, 52]}
+
+df = pd.Dataframe(data)
+
+print(df)
+
+#Access a single row:
+
+print(df.loc[“search label”])
+
+#Add new column 
+
+df[“Job] = [“cleaner”, “driver”, “sales”]
+
+#Add new row
+
+new_row = pd.Dataframe([{“Name”: “Sam”, “Age”: 28, “Job”: “Cook”}])
+
+Df = pdconcat([df, new_row])
+
+Creates a new row and adds it to existing data frame
+
+Can add multiple rows by including more then one dictionary
+
+Also include index= to add the index
+
+IMPORTING FILES
+
+df = pd.read_csv(“data file name or path if not in same directory”)
+
+Adding index_col=“Name” to set up a index column
+
+ Prints truncated view
+
+print(df.to_string())
+
+Prints whole file careful on large files
+
+SELECTION TECHNIQUES
+
+print(df[“column name”])  add .to_string() to get full list 
+
+This will give you a series
+
+print(df[“Name”, “Height”, “Weight”].) 
+
+Multiple columns
+
+print(df.loc[1]) print a row
+
+print(df.loc[“Dave”, [“Height”, “Weight”]]) 
+
+Displays a column relating to Dave but only shows the height and weight data 
+
+Use df.loc[“Dave”:”Sam”.  To display rows from one to the other
+
+Print first 10 rows:
+
+print(df.iloc[0:11])
+
+ Print first 10 rows in steps of 2 with columns 0 - 3:
+
+print(df.iloc[0:11:2, 0:3])
+
+FILTERING
+
+Filter data to show rows with height of more then 2 meters
+
+ tallest = df[df[“Height”] >= 2]
+
+Using OR operator
+
+ordata = df[(df[“column1”] == “Something”) | (df[“column4”] == “Something”)]
+
+Works with & | 
+
+#Aggregate functions mean average etc 
+
+Show summery
+
+print(df.mean(numeric_only=True)) this will ignore strings and just summaries the numbers
+
+Works with SUM, MIN, MAX, COUNT, etc
+
+Above works for whole data frame
+
+To pick out single column
+
+print(df[“Height”].sum())
+
+GROUP BY
+
+Group and summarise data based on groups
+
+group = df.groupby(“Type”)
+print(group[“Height”].sum())
+
+# DATA CLEANING
+
+Drop irrelevant column(s)
+
+df = df.drop(columns=[“Colour”])
+
+Missing data
+
+df = df.dropna(subset=[“Height”]) drop na not available
+
+Drops all rows where there are no values in the Height column
+
+Replace rows 
+
+df = df.fillna({“Height”: “None”})
+
+This has replaced any values in the Height column that are missing with “None”
+
+Replace data with other data
+
+df[“Colour”] = df[“Colour”].replace({“Red”: “Blue”})
+
+Standardise text 
+
+df[“Name”] = df[“Name”].str.lower() - changes all the data in the name column to lower case
+
+Change data types
+
+ df[“Passed”] = df[“Passed”].astype(bool)
+
+Remove duplicate values
+
+df = df.drop_duplicates()
